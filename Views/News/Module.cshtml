@@ -1,0 +1,21 @@
+@* News archive — renders hero + news article list *@
+
+<ew-template for-key="heroPage" />
+
+<div class="section-pad">
+    <div class="section-inner">
+        <div class="news-grid">
+            <a class="news-card" ew-for-href="$" ew-list="newsList">
+                <div class="thumb">
+                    <img ew-for-src="$" />
+                </div>
+                <div class="body">
+                    <div class="date" ew-for="$date"></div>
+                    <h3 ew-for="$label"></h3>
+                    <p ew-for="$introduction"></p>
+                    <span class="read-more">Läs mer →</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

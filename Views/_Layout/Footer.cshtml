@@ -1,18 +1,24 @@
-﻿<footer>
-    <div class="inner">
-        <ew-template />
-        <div>
-            <h4>@SiteContext.Office.Label</h4>
-            <address>
-                <span>@SiteContext.Office.Address</span>
-                <span>@SiteContext.Office.City</span>
-                <span><a href="mailto:@SiteContext.Office.Email">@SiteContext.Office.Email</a></span>
-                <span>@SiteContext.Office.Phone</span>
-            </address>
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a class="logo" href="/">
+                    <img ew-for-src="logotype" />
+                </a>
+                <h3 ew-for="Section/header"></h3>
+                <p ew-for="Section/description"></p>
+            </div>
+            <div class="footer-cols">
+                <div class="f-col" ew-list="linkBlock">
+                    <h4 ew-for="$label"></h4>
+                    <ew-list for-key="links">
+                        <a ew-for-href="$"><span ew-for="$label"></span></a>
+                    </ew-list>
+                </div>
+            </div>
         </div>
-
-        <div class="bottom-footer">
-            <div class="ew-copyright">&copy; @DateTime.Now.Year - @SiteContext.Office.Label</div>
+        <div class="footer-bottom">
+            &copy; @DateTime.Now.Year - @SiteContext.Office.Label
         </div>
     </div>
 </footer>
