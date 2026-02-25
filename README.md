@@ -592,7 +592,9 @@ If no matching `.cshtml` is found, it falls back to `_Default/Template.cshtml` w
 </div>
 ```
 
-The element with `ew-list` is **repeated** for each item in the list. The context inside changes to each individual item.
+The element with `ew-list` acts as the **container** — it is rendered once. Its **inner markup is repeated** for each item in the list, with the context set to each individual item. The element itself is **not** repeated.
+
+> **Important:** Place `ew-list` on the **parent/container** element, not on the per-item element. The inner HTML of the `ew-list` element is the per-item template.
 
 **Inside a template view** (when context is already the list component), use `$` or `$this`:
 
@@ -635,7 +637,7 @@ The element with `ew-list` is **repeated** for each item in the list. The contex
 | | `ew-list` | `ew-template` |
 |---|---|---|
 | **Use when** | You want to control the HTML for each item inline | You want each item to render using its own `.cshtml` view file |
-| **Iteration** | Repeats the element for each item | Renders each child using view resolution |
+| **Iteration** | Repeats the inner content for each item (container element is not repeated) | Renders each child using view resolution |
 | **Context** | Inner content gets each item as context | Each item's view gets the item as context |
 
 ### `ew-if-key` / `ew-if-not-key` — Conditional by Key
@@ -738,8 +740,8 @@ Lists (ViewListComponent) are one of the most important concepts. They represent
 Use `ew-list` when you want full control over each item's markup:
 
 ```razor
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" ew-list="newsList">
+<div class="row row-cols-1 row-cols-md-3 g-4" ew-list="newsList">
+    <div class="col">
         <div class="card h-100">
             <div class="card-body">
                 <time ew-for="date" format="MMM dd, yyyy"></time>
@@ -750,6 +752,8 @@ Use `ew-list` when you want full control over each item's markup:
     </div>
 </div>
 ```
+
+Here, `ew-list` is on the row (the container). For each item, the inner `<div class="col">...</div>` is rendered — producing one column per list item.
 
 ### Rendering a List via Template Views
 
@@ -773,14 +777,16 @@ Inside that view, use `ew-list="$"` to iterate since the context is the list com
 
 ```razor
 @* Views/News/newsList.cshtml *@
-<div class="col" ew-list="$">
-    <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body">
-            <time ew-for="date" format="MMM dd, yyyy"></time>
-            <h5 class="card-title fw-bold">
-                <a ew-for-href="$" ew-for="$label" class="stretched-link text-decoration-none text-body"></a>
-            </h5>
-            <p class="card-text text-body-secondary" ew-for="section/preamble"></p>
+<div class="row row-cols-1 row-cols-md-3 g-4" ew-list="$">
+    <div class="col">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+                <time ew-for="date" format="MMM dd, yyyy"></time>
+                <h5 class="card-title fw-bold">
+                    <a ew-for-href="$" ew-for="$label" class="stretched-link text-decoration-none text-body"></a>
+                </h5>
+                <p class="card-text text-body-secondary" ew-for="section/preamble"></p>
+            </div>
         </div>
     </div>
 </div>
@@ -1069,8 +1075,8 @@ Each flex item is a wrapper; its child determines which view renders:
 ### Card Grid with List Items
 
 ```razor
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" ew-list="newsList">
+<div class="row row-cols-1 row-cols-md-3 g-4" ew-list="newsList">
+    <div class="col">
         <div class="card h-100">
             <div class="card-body">
                 <time ew-for="date" format="MMM dd, yyyy"></time>
