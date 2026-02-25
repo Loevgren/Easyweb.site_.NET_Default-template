@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webbdesign Mockups</title>
+<style>
+:root{
+  --bg:#0d0d0d;
+  --surface:#161616;
+  --surface2:#1e1e1e;
+  --surface3:#252525;
+  --border:rgba(255,255,255,.06);
+  --border2:rgba(255,255,255,.1);
+  --orange:#e8622a;
+  --orange-light:#f5833f;
+  --orange-hot:#ff6a1a;
+  --orange-glow:rgba(232,98,42,.15);
+  --orange-glow2:rgba(232,98,42,.25);
+  --amber:#fbbf24;
+  --cream:#fef0e0;
+  --text:#e8e0d8;
+  --text-dim:rgba(255,255,255,.5);
+  --text-muted:rgba(255,255,255,.35);
+  --white:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* === NAV between pages === */
+.page-sep{text-align:center;padding:60px 20px 30px}
+.page-sep h2{font-size:13px;text-transform:uppercase;letter-spacing:4px;color:var(--orange);opacity:.7}
+.page-sep span{font-size:12px;color:var(--text-muted)}
+
+/* === HEADER === */
+.header{display:flex;justify-content:space-between;align-items:center;padding:16px clamp(20px,5vw,60px);background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(13,13,13,.85)}
+.logo{height:36px;padding:0 20px;background:linear-gradient(135deg,var(--orange),var(--orange-light));border-radius:8px;display:flex;align-items:center;color:#fff;font-weight:800;font-size:12px;letter-spacing:2px}
+.nav{display:flex;gap:clamp(16px,3vw,32px);flex-wrap:wrap}
+.nav a{font-size:14px;color:var(--text-dim);font-weight:500;text-decoration:none;transition:color .2s}
+.nav a:hover,.nav a.active{color:var(--orange-light)}
+.nav a.active{border-bottom:2px solid var(--orange);padding-bottom:2px}
+
+/* === HERO HOME === */
+.hero-home{position:relative;min-height:85vh;display:flex;align-items:center;padding:clamp(40px,8vw,100px) clamp(20px,5vw,60px);overflow:hidden;background:var(--bg)}
+.hero-home::before{content:'';position:absolute;right:-20%;top:-30%;width:70vw;height:70vw;max-width:800px;max-height:800px;background:radial-gradient(circle,var(--orange-glow2),transparent 65%);border-radius:50%;pointer-events:none}
+.hero-home::after{content:'';position:absolute;left:0;bottom:0;right:0;height:200px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none;z-index:1}
+.hero-inner{display:flex;align-items:center;gap:clamp(30px,5vw,80px);width:100%;max-width:1400px;margin:0 auto;position:relative;z-index:2}
+.hero-text{flex:1;min-width:280px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:var(--orange-glow);border:1px solid rgba(232,98,42,.2);border-radius:24px;font-size:12px;color:var(--orange-light);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%}
+.hero-text h1{font-size:clamp(32px,5vw,56px);color:#fff;line-height:1.08;margin-bottom:20px;font-weight:800}
+.hero-text h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-text p{font-size:clamp(15px,1.3vw,18px);color:var(--text-dim);line-height:1.75;margin-bottom:32px;max-width:520px}
+.btn{display:inline-block;padding:15px 34px;background:linear-gradient(135deg,var(--orange),var(--orange-hot));color:#fff;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.5px;box-shadow:0 6px 30px rgba(232,98,42,.35);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 40px rgba(232,98,42,.45)}
+.hero-media{flex:1;min-width:280px;aspect-ratio:4/3;background:var(--surface);border:2px dashed var(--border2);border-radius:24px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px}
+
+/* === SECTION SHARED === */
+.section-pad{padding:clamp(50px,8vw,100px) clamp(20px,5vw,60px)}
+.section-inner{max-width:1400px;margin:0 auto}
+.tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:2.5px;color:var(--orange);font-weight:800;margin-bottom:12px}
+
+/* === INTRO === */
+.intro-center{text-align:center;max-width:740px;margin:0 auto}
+.intro-center h2{font-size:clamp(26px,3.5vw,38px);color:#fff;margin-bottom:16px;font-weight:700}
+.intro-center p{font-size:16px;color:var(--text-dim);line-height:1.85}
+.intro-link{display:inline-block;margin-top:22px;color:var(--orange-light);font-weight:700;font-size:14px;text-decoration:none;border-bottom:2px solid var(--orange)}
+
+/* === FACTS === */
+.facts-bg{background:var(--surface)}
+.facts-bg h2{text-align:center;font-size:clamp(24px,3vw,32px);color:#fff;margin-bottom:44px}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.fact-box{background:var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:clamp(24px,3vw,40px) 20px;text-align:center;position:relative;overflow:hidden}
+.fact-box::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:50px;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:0 0 4px 4px}
+.fact-box .number{font-size:clamp(32px,4vw,46px);font-weight:900;background:linear-gradient(135deg,var(--orange-light),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+.fact-box .text{font-size:13px;color:var(--text-muted);font-weight:500}
+
+/* === TEXT & MEDIA === */
+.tm-row{display:flex;align-items:center;gap:clamp(30px,5vw,70px)}
+.tm-row.reversed{flex-direction:row-reverse}
+.tm-img{flex:1;min-width:240px;aspect-ratio:4/3;background:var(--surface2);border:1px solid var(--border2);border-radius:20px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px}
+.tm-content{flex:1;min-width:240px}
+.tm-content h2{font-size:clamp(22px,2.8vw,30px);color:#fff;margin-bottom:14px;font-weight:700}
+.tm-content p{font-size:15px;color:var(--text-dim);line-height:1.85}
+
+/* === BANNER === */
+.banner{position:relative;padding:clamp(50px,8vw,100px) clamp(20px,5vw,60px);background:linear-gradient(135deg,var(--surface2),#1a1008,#2a1505);text-align:center;overflow:hidden}
+.banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,var(--orange-glow),transparent 70%);pointer-events:none}
+.banner .tag,.banner h2{position:relative;z-index:1}
+.banner .tag{color:var(--orange-light);opacity:.7}
+.banner h2{font-size:clamp(26px,4vw,40px);color:#fff;font-weight:800}
+
+/* === FOOTER === */
+.footer{background:var(--surface);border-top:1px solid var(--border);padding:clamp(40px,5vw,60px) clamp(20px,5vw,60px) 24px}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:flex;gap:clamp(30px,4vw,60px);flex-wrap:wrap;margin-bottom:40px}
+.footer-brand{flex:1.5;min-width:240px}
+.footer-brand .logo{margin-bottom:16px}
+.footer-brand h3{font-size:16px;color:#fff;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.footer-cols{flex:2;display:flex;gap:clamp(20px,3vw,50px);flex-wrap:wrap;min-width:240px}
+.f-col{min-width:120px}
+.f-col h4{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:14px;font-weight:800}
+.f-col a{display:block;font-size:14px;color:var(--text-dim);text-decoration:none;margin-bottom:10px;transition:color .2s}
+.f-col a:hover{color:var(--orange-light)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;font-size:12px;color:var(--text-muted);text-align:center}
+
+/* === PAGE HERO === */
+.hero-page{padding:clamp(60px,8vw,100px) clamp(20px,5vw,60px) clamp(40px,5vw,60px);background:var(--bg);position:relative;overflow:hidden}
+.hero-page::before{content:'';position:absolute;right:-10%;top:-40%;width:50vw;height:50vw;max-width:600px;max-height:600px;background:radial-gradient(circle,var(--orange-glow),transparent 65%);border-radius:50%;pointer-events:none}
+.hero-page-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1}
+.hero-page h1{font-size:clamp(30px,4.5vw,48px);color:#fff;margin-bottom:16px;max-width:750px;font-weight:800}
+.hero-page p{font-size:clamp(14px,1.2vw,17px);color:var(--text-dim);max-width:600px;line-height:1.75;margin-bottom:30px}
+.hero-page .media-placeholder{width:100%;aspect-ratio:16/6;background:var(--surface);border:2px dashed var(--border2);border-radius:20px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px}
+
+/* === TEXT CONTENT (rich text) === */
+.text-content{max-width:780px}
+.text-content h2{font-size:clamp(22px,2.5vw,28px);color:#fff;margin-bottom:20px}
+.text-content .html-body{font-size:15px;color:var(--text-dim);line-height:1.95}
+.text-content .html-body p{margin-bottom:16px}
+
+/* === TEAMS === */
+.teams-bg{background:var(--surface)}
+.teams-head{text-align:center;margin-bottom:40px}
+.teams-head h2{font-size:clamp(24px,3vw,32px);color:#fff;margin-bottom:8px}
+.teams-head p{color:var(--text-dim);font-size:15px}
+.teams-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.team-card{background:var(--surface2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;transition:border-color .25s}
+.team-card:hover{border-color:var(--orange-glow2)}
+.team-card .photo{aspect-ratio:1;background:var(--surface3);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px}
+.team-card .info{padding:18px;text-align:center}
+.team-card .info h4{font-size:15px;color:#fff;margin-bottom:4px}
+.team-card .info span{font-size:13px;color:var(--orange-light)}
+
+.divider{height:1px;background:var(--border);margin:0 clamp(20px,5vw,60px)}
+
+/* === CONTACT === */
+.contact-grid{display:flex;gap:clamp(30px,4vw,60px);flex-wrap:wrap}
+.contact-info{flex:1;min-width:280px}
+.contact-info h2{font-size:clamp(24px,3vw,30px);color:#fff;margin-bottom:16px}
+.contact-info>p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:32px}
+.c-detail{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.c-icon{width:48px;height:48px;background:var(--orange-glow);border:1px solid rgba(232,98,42,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--orange-light);font-weight:700;flex-shrink:0}
+.c-detail .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.c-detail .value{font-size:15px;color:#fff;font-weight:500}
+.contact-form-box{flex:1;min-width:280px;background:var(--surface2);border:1px solid var(--border2);border-radius:20px;padding:clamp(24px,3vw,40px)}
+.contact-form-box h3{font-size:22px;color:#fff;margin-bottom:24px}
+.form-row{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.form-field{flex:1;min-width:180px;display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.form-field .input{height:48px;background:var(--surface3);border:1px solid var(--border2);border-radius:12px;padding:0 16px;display:flex;align-items:center;color:var(--text-muted);font-size:13px}
+.form-field .textarea{height:120px;background:var(--surface3);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;color:var(--text-muted);font-size:13px}
+.map-box{width:100%;aspect-ratio:16/5;background:var(--surface2);border:1px solid var(--border2);border-radius:20px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px;margin-top:clamp(30px,4vw,60px)}
+
+/* === NEWS === */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.news-card{background:var(--surface2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;transition:border-color .25s,transform .25s}
+.news-card:hover{border-color:rgba(232,98,42,.25);transform:translateY(-3px)}
+.news-card .thumb{aspect-ratio:16/10;background:var(--surface3);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px}
+.news-card .body{padding:24px}
+.news-card .date{font-size:12px;color:var(--orange);font-weight:700;margin-bottom:8px}
+.news-card h3{font-size:17px;color:#fff;margin-bottom:10px;line-height:1.45;font-weight:600}
+.news-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
+.news-card .read-more{display:inline-block;margin-top:14px;font-size:13px;color:var(--orange-light);font-weight:700;text-decoration:none}
+.pagination{display:flex;justify-content:center;gap:8px;padding-top:clamp(30px,4vw,50px)}
+.pagination span{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:14px;font-weight:700;color:var(--text-muted);border:1px solid var(--border2);background:var(--surface2)}
+.pagination span.active{background:linear-gradient(135deg,var(--orange),var(--orange-hot));color:#fff;border-color:transparent;box-shadow:0 4px 18px rgba(232,98,42,.35)}
+
+/* === ARTICLE === */
+.article-hero{padding:clamp(60px,8vw,100px) clamp(20px,5vw,60px) clamp(30px,4vw,50px);background:var(--bg);position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;right:-10%;top:-30%;width:45vw;height:45vw;max-width:500px;max-height:500px;background:radial-gradient(circle,var(--orange-glow),transparent 65%);border-radius:50%;pointer-events:none}
+.article-hero-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1}
+.breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:20px}
+.breadcrumb a{color:var(--orange);opacity:.7;text-decoration:none}
+.article-meta{font-size:13px;color:var(--orange);opacity:.7;margin-bottom:14px}
+.article-hero h1{font-size:clamp(28px,4vw,44px);color:#fff;max-width:800px;line-height:1.18;margin-bottom:20px;font-weight:800}
+.article-hero .ingress{font-size:clamp(15px,1.3vw,18px);color:var(--text-dim);max-width:700px;line-height:1.75}
+.article-img{padding:clamp(20px,3vw,40px) clamp(20px,5vw,60px);max-width:1400px;margin:0 auto}
+.article-img .img-wide{width:100%;aspect-ratio:16/7;background:var(--surface2);border:1px solid var(--border2);border-radius:20px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px}
+.article-body{padding:clamp(30px,4vw,50px) clamp(20px,5vw,60px);max-width:860px}
+.article-body p{font-size:16px;color:var(--text-dim);line-height:1.9;margin-bottom:18px}
+.article-body h2{font-size:clamp(20px,2.2vw,26px);color:#fff;margin:36px 0 14px}
+.article-nav{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:0 clamp(20px,5vw,60px) clamp(40px,5vw,60px);max-width:860px}
+.article-nav a{font-size:14px;color:var(--orange-light);text-decoration:none;font-weight:700}
+
+/* === RESPONSIVE === */
+@media(max-width:900px){
+  .hero-inner,.tm-row,.tm-row.reversed{flex-direction:column}
+  .hero-media{width:100%}
+  .contact-grid{flex-direction:column}
+}
+@media(max-width:600px){
+  .nav{gap:12px}
+  .nav a{font-size:13px}
+  .facts-grid{grid-template-columns:repeat(2,1fr)}
+  .teams-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================== 1. STARTSIDA ======================== -->
+<div class="page-sep"><h2>1 — Startsida</h2><span>Home</span></div>
+<div class="header">
+  <div class="logo">LOGOTYP</div>
+  <nav class="nav"><a href="#" class="active">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Tjänster</a><a href="#">Kontakt</a></nav>
+</div>
+<div class="hero-home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Digitala lösningar</div>
+      <h1>Vi bygger <em>framtidens</em> digitala upplevelser</h1>
+      <p>En kort och engagerande beskrivning som presenterar verksamheten och lockar besökaren att utforska vidare.</p>
+      <a class="btn" href="#">Kom igång →</a>
+    </div>
+    <div class="hero-media">Bild / Video</div>
+  </div>
+</div>
+<div class="section-pad">
+  <div class="section-inner intro-center">
+    <span class="tag">Vilka vi är</span>
+    <h2>Vi hjälper dig att växa digitalt</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+    <a class="intro-link" href="#">Upptäck mer</a>
+  </div>
+</div>
+<div class="section-pad facts-bg">
+  <div class="section-inner">
+    <h2>Fakta i siffror</h2>
+    <div class="facts-grid">
+      <div class="fact-box"><div class="number">150+</div><div class="text">Nöjda kunder</div></div>
+      <div class="fact-box"><div class="number">12</div><div class="text">År i branschen</div></div>
+      <div class="fact-box"><div class="number">98%</div><div class="text">Nöjdhetsgrad</div></div>
+      <div class="fact-box"><div class="number">24/7</div><div class="text">Support</div></div>
+    </div>
+  </div>
+</div>
+<div class="section-pad">
+  <div class="section-inner tm-row">
+    <div class="tm-img">Bild</div>
+    <div class="tm-content"><span class="tag">Våra tjänster</span><h2>Skräddarsydda digitala lösningar</h2><p>Vi erbjuder ett brett utbud av tjänster anpassade efter dina behov. Från strategi till design och utveckling.</p></div>
+  </div>
+</div>
+<div class="section-pad" style="padding-top:0">
+  <div class="section-inner tm-row reversed">
+    <div class="tm-img">Bild</div>
+    <div class="tm-content"><span class="tag">Varför oss?</span><h2>Erfarenhet som gör skillnad</h2><p>Med gedigen erfarenhet och ett passionerat team levererar vi resultat som överträffar förväntningarna.</p></div>
+  </div>
+</div>
+<div class="banner"><span class="tag">Kontakta oss</span><h2>Redo att ta nästa steg?</h2></div>
+<div class="footer"><div class="footer-inner">
+  <div class="footer-top">
+    <div class="footer-brand"><div class="logo">LOGOTYP</div><h3>Företagsnamn AB</h3><p>En kort beskrivning av företaget och vad ni gör. Besöksadress, telefonnummer och kontaktinformation.</p></div>
+    <div class="footer-cols">
+      <div class="f-col"><h4>Sidor</h4><a href="#">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Kontakt</a></div>
+      <div class="f-col"><h4>Juridiskt</h4><a href="#">Integritetspolicy</a><a href="#">Cookies</a><a href="#">Villkor</a></div>
+      <div class="f-col"><h4>Socialt</h4><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Instagram</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Företagsnamn AB. Alla rättigheter förbehållna.</div>
+</div></div>
+
+<!-- ======================== 2. UNDERSIDA ======================== -->
+<div class="page-sep"><h2>2 — Undersida</h2><span>Page</span></div>
+<div class="header"><div class="logo">LOGOTYP</div><nav class="nav"><a href="#">Hem</a><a href="#" class="active">Om oss</a><a href="#">Nyheter</a><a href="#">Tjänster</a><a href="#">Kontakt</a></nav></div>
+<div class="hero-page"><div class="hero-page-inner">
+  <h1>Om oss – vilka vi är</h1>
+  <p>En kortare beskrivning av sidan som ger besökaren en överblick av sidans innehåll och syfte.</p>
+  <div class="media-placeholder">Bild / Video</div>
+</div></div>
+<div class="section-pad"><div class="section-inner intro-center">
+  <span class="tag">Vår historia</span><h2>Grundat med passion och drivkraft</h2>
+  <p>Vi startade med en enkel idé – att göra digital närvaro tillgänglig för alla.</p>
+  <a class="intro-link" href="#">Läs hela historien</a>
+</div></div>
+<div class="section-pad" style="padding-top:0"><div class="section-inner text-content">
+  <h2>Vår vision och våra värderingar</h2>
+  <div class="html-body">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.</p>
+  </div>
+</div></div>
+<div class="divider"></div>
+<div class="section-pad"><div class="section-inner tm-row">
+  <div class="tm-img">Bild</div>
+  <div class="tm-content"><span class="tag">Vårt arbetssätt</span><h2>Tillsammans skapar vi resultat</h2><p>Vi tror på nära samarbete och transparens genom hela processen.</p></div>
+</div></div>
+<div class="section-pad facts-bg"><div class="section-inner">
+  <h2>Vår verksamhet i siffror</h2>
+  <div class="facts-grid">
+    <div class="fact-box"><div class="number">50+</div><div class="text">Anställda</div></div>
+    <div class="fact-box"><div class="number">300+</div><div class="text">Projekt</div></div>
+    <div class="fact-box"><div class="number">8</div><div class="text">Länder</div></div>
+    <div class="fact-box"><div class="number">5★</div><div class="text">Betyg</div></div>
+  </div>
+</div></div>
+<div class="section-pad teams-bg"><div class="section-inner">
+  <div class="teams-head"><h2>Möt vårt team</h2><p>Engagerade specialister som brinner för det vi gör.</p></div>
+  <div class="teams-grid">
+    <div class="team-card"><div class="photo">Foto</div><div class="info"><h4>Anna Svensson</h4><span>VD</span></div></div>
+    <div class="team-card"><div class="photo">Foto</div><div class="info"><h4>Erik Johansson</h4><span>Utvecklare</span></div></div>
+    <div class="team-card"><div class="photo">Foto</div><div class="info"><h4>Lisa Bergström</h4><span>Designer</span></div></div>
+    <div class="team-card"><div class="photo">Foto</div><div class="info"><h4>Oscar Lindqvist</h4><span>Projektledare</span></div></div>
+  </div>
+</div></div>
+<div class="banner"><span class="tag">Bli en del av oss</span><h2>Vi söker nya talanger</h2></div>
+<div class="footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="logo">LOGOTYP</div><h3>Företagsnamn AB</h3><p>En kort beskrivning av företaget.</p></div><div class="footer-cols"><div class="f-col"><h4>Sidor</h4><a href="#">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Kontakt</a></div><div class="f-col"><h4>Juridiskt</h4><a href="#">Integritetspolicy</a><a href="#">Cookies</a><a href="#">Villkor</a></div><div class="f-col"><h4>Socialt</h4><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Instagram</a></div></div></div><div class="footer-bottom">© 2026 Företagsnamn AB. Alla rättigheter förbehållna.</div></div></div>
+
+<!-- ======================== 3. KONTAKTSIDA ======================== -->
+<div class="page-sep"><h2>3 — Kontakt</h2><span>Contact</span></div>
+<div class="header"><div class="logo">LOGOTYP</div><nav class="nav"><a href="#">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Tjänster</a><a href="#" class="active">Kontakt</a></nav></div>
+<div class="hero-page"><div class="hero-page-inner">
+  <h1>Kontakta oss</h1>
+  <p>Har du en fråga, ett projekt eller vill bara säga hej? Vi hör gärna från dig.</p>
+</div></div>
+<div class="section-pad"><div class="section-inner contact-grid">
+  <div class="contact-info">
+    <h2>Hör av dig</h2>
+    <p>Fyll i formuläret eller kontakta oss direkt. Vi svarar normalt inom 24 timmar.</p>
+    <div class="c-detail"><div class="c-icon">✉</div><div><div class="label">E-post</div><div class="value">info@foretagsnamn.se</div></div></div>
+    <div class="c-detail"><div class="c-icon">✆</div><div><div class="label">Telefon</div><div class="value">08-123 456 78</div></div></div>
+    <div class="c-detail"><div class="c-icon">⌂</div><div><div class="label">Besöksadress</div><div class="value">Storgatan 1, 111 22 Stockholm</div></div></div>
+    <div class="c-detail"><div class="c-icon">◷</div><div><div class="label">Öppettider</div><div class="value">Mån–Fre 08:00–17:00</div></div></div>
+  </div>
+  <div class="contact-form-box">
+    <h3>Skicka ett meddelande</h3>
+    <div class="form-row"><div class="form-field"><label>Namn</label><div class="input">Ditt namn...</div></div><div class="form-field"><label>E-post</label><div class="input">Din e-postadress...</div></div></div>
+    <div class="form-row"><div class="form-field"><label>Telefon</label><div class="input">Ditt telefonnummer...</div></div><div class="form-field"><label>Ämne</label><div class="input">Vad gäller det?</div></div></div>
+    <div class="form-field" style="margin-bottom:16px"><label>Meddelande</label><div class="textarea">Skriv ditt meddelande här...</div></div>
+    <a class="btn" href="#">Skicka meddelande →</a>
+  </div>
+</div></div>
+<div class="section-pad" style="padding-top:0"><div class="section-inner">
+  <div class="map-box">Karta / Google Maps</div>
+</div></div>
+<div class="footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="logo">LOGOTYP</div><h3>Företagsnamn AB</h3><p>En kort beskrivning av företaget.</p></div><div class="footer-cols"><div class="f-col"><h4>Sidor</h4><a href="#">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Kontakt</a></div><div class="f-col"><h4>Juridiskt</h4><a href="#">Integritetspolicy</a><a href="#">Cookies</a><a href="#">Villkor</a></div><div class="f-col"><h4>Socialt</h4><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Instagram</a></div></div></div><div class="footer-bottom">© 2026 Företagsnamn AB. Alla rättigheter förbehållna.</div></div></div>
+
+<!-- ======================== 4. NYHETSARKIV ======================== -->
+<div class="page-sep"><h2>4 — Nyhetsarkiv</h2><span>News Archive</span></div>
+<div class="header"><div class="logo">LOGOTYP</div><nav class="nav"><a href="#">Hem</a><a href="#">Om oss</a><a href="#" class="active">Nyheter</a><a href="#">Tjänster</a><a href="#">Kontakt</a></nav></div>
+<div class="hero-page"><div class="hero-page-inner">
+  <h1>Nyheter & Aktuellt</h1>
+  <p>Håll dig uppdaterad med de senaste nyheterna och händelserna från oss.</p>
+  <div class="media-placeholder">Bild / Video</div>
+</div></div>
+<div class="section-pad"><div class="section-inner">
+  <div class="news-grid">
+    <div class="news-card"><div class="thumb">Bild</div><div class="body"><div class="date">24 feb 2026</div><h3>Vi lanserar vår nya plattform för digitala tjänster</h3><p>Efter månader av utveckling är vi stolta att presentera vår helt nya plattform...</p><a class="read-more" href="#">Läs mer →</a></div></div>
+    <div class="news-card"><div class="thumb">Bild</div><div class="body"><div class="date">18 feb 2026</div><h3>Tre tips för att lyckas med din digitala strategi</h3><p>Att ha en tydlig digital strategi är avgörande för att nå ut till rätt målgrupp...</p><a class="read-more" href="#">Läs mer →</a></div></div>
+    <div class="news-card"><div class="thumb">Bild</div><div class="body"><div class="date">10 feb 2026</div><h3>Vi välkomnar två nya medarbetare till teamet</h3><p>Vårt team växer! Vi är glada att presentera Emma och Johan...</p><a class="read-more" href="#">Läs mer →</a></div></div>
+    <div class="news-card"><div class="thumb">Bild</div><div class="body"><div class="date">2 feb 2026</div><h3>Så förbättrar du användarupplevelsen online</h3><p>Användarupplevelsen är nyckeln till framgång online. Här delar vi våra bästa tips...</p><a class="read-more" href="#">Läs mer →</a></div></div>
+    <div class="news-card"><div class="thumb">Bild</div><div class="body"><div class="date">25 jan 2026</div><h3>Vår årliga branschkonferens – sammandrag</h3><p>I år samlade konferensen över 500 deltagare. De viktigaste insikterna...</p><a class="read-more" href="#">Läs mer →</a></div></div>
+    <div class="news-card"><div class="thumb">Bild</div><div class="body"><div class="date">15 jan 2026</div><h3>Nytt partnerskap stärker erbjudandet inom AI</h3><p>Genom ett nytt strategiskt partnerskap erbjuder vi smartare lösningar...</p><a class="read-more" href="#">Läs mer →</a></div></div>
+  </div>
+  <div class="pagination"><span class="active">1</span><span>2</span><span>3</span><span>→</span></div>
+</div></div>
+<div class="footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="logo">LOGOTYP</div><h3>Företagsnamn AB</h3><p>En kort beskrivning av företaget.</p></div><div class="footer-cols"><div class="f-col"><h4>Sidor</h4><a href="#">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Kontakt</a></div><div class="f-col"><h4>Juridiskt</h4><a href="#">Integritetspolicy</a><a href="#">Cookies</a><a href="#">Villkor</a></div><div class="f-col"><h4>Socialt</h4><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Instagram</a></div></div></div><div class="footer-bottom">© 2026 Företagsnamn AB. Alla rättigheter förbehållna.</div></div></div>
+
+<!-- ======================== 5. ENSKILD NYHET ======================== -->
+<div class="page-sep"><h2>5 — Enskild nyhet</h2><span>Single News</span></div>
+<div class="header"><div class="logo">LOGOTYP</div><nav class="nav"><a href="#">Hem</a><a href="#">Om oss</a><a href="#" class="active">Nyheter</a><a href="#">Tjänster</a><a href="#">Kontakt</a></nav></div>
+<div class="article-hero"><div class="article-hero-inner">
+  <div class="breadcrumb"><a href="#">Hem</a> / <a href="#">Nyheter</a> / Aktuell nyhet</div>
+  <div class="article-meta">24 februari 2026</div>
+  <h1>Vi lanserar vår nya plattform för digitala tjänster</h1>
+  <p class="ingress">Efter månader av intensiv utveckling är vi stolta att presentera vår nya plattform – byggd med fokus på användarvänlighet, prestanda och skalbarhet.</p>
+</div></div>
+<div class="article-img"><div class="img-wide">Nyhetsbild</div></div>
+<div class="article-body">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+  <h2>Vad innebär det för våra kunder?</h2>
+  <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit.</p>
+  <p>Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor.</p>
+  <h2>Nästa steg</h2>
+  <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.</p>
+</div>
+<div class="article-nav"><a href="#">← Föregående nyhet</a><a href="#">Nästa nyhet →</a></div>
+<div class="banner"><span class="tag">Vill du veta mer?</span><h2>Kontakta oss idag</h2></div>
+<div class="footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="logo">LOGOTYP</div><h3>Företagsnamn AB</h3><p>En kort beskrivning av företaget.</p></div><div class="footer-cols"><div class="f-col"><h4>Sidor</h4><a href="#">Hem</a><a href="#">Om oss</a><a href="#">Nyheter</a><a href="#">Kontakt</a></div><div class="f-col"><h4>Juridiskt</h4><a href="#">Integritetspolicy</a><a href="#">Cookies</a><a href="#">Villkor</a></div><div class="f-col"><h4>Socialt</h4><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Instagram</a></div></div></div><div class="footer-bottom">© 2026 Företagsnamn AB. Alla rättigheter förbehållna.</div></div></div>
+
+</body>
+</html>

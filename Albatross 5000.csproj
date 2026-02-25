@@ -8,10 +8,10 @@
 
     <!-- Installed nuget packages in use by the site -->
     <ItemGroup>
-        <PackageReference Include="Easyweb.Site.DataApi" Version="8.5.0" />
-        <PackageReference Include="Easyweb.Site.Infrastructure" Version="8.6.1" />
-        <PackageReference Include="Easyweb.Site.ThumbnailGeneration" Version="8.0.0" />
-        <PackageReference Include="Easyweb.Site.RuntimeCompilation" Version="8.0.0" />
+        <PackageReference Include="Easyweb.Site.DataApi" Version="8.11.1" />
+        <PackageReference Include="Easyweb.Site.Infrastructure" Version="8.11.0" />
+        <PackageReference Include="Easyweb.Site.ThumbnailGeneration" Version="8.11.0" />
+        <PackageReference Include="Easyweb.Site.RuntimeCompilation" Version="8.11.0" />
     </ItemGroup>
 
     <PropertyGroup>
