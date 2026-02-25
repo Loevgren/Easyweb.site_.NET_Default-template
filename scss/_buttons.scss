@@ -1,0 +1,26 @@
+// ============================================
+//   BUTTONS
+// ============================================
+.btn {
+    display: inline-block;
+    padding: 15px 34px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-hot));
+    color: #fff;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: .5px;
+    box-shadow: 0 6px 30px rgba(232,98,42,.35);
+    transition: transform .2s, box-shadow .2s;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 40px rgba(232,98,42,.45);
+        color: #fff;
+    }
+
+    span { color: #fff; }
+}

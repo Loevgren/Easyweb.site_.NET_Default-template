@@ -1,0 +1,21 @@
+// ============================================
+//   SECTION SHARED
+// ============================================
+.section-pad {
+    padding: clamp(50px, 8vw, 100px) clamp(20px, 5vw, 60px);
+}
+
+.section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--orange);
+    font-weight: 800;
+    margin-bottom: 12px;
+}

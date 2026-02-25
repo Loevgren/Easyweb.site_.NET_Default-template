@@ -1,0 +1,23 @@
+// ============================================
+//   Main stylesheet — imports all partials
+// ============================================
+
+@use 'variables';
+@use 'base';
+@use 'header';
+@use 'nav';
+@use 'buttons';
+@use 'sections';
+@use 'hero';
+@use 'intro';
+@use 'facts';
+@use 'text-media';
+@use 'banner';
+@use 'footer';
+@use 'text-content';
+@use 'teams';
+@use 'contact';
+@use 'news';
+@use 'article';
+@use 'timeline';
+@use 'responsive';

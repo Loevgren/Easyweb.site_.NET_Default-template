@@ -20,6 +20,45 @@ Simple and plain .NET 8 starting template for creating content using Easyweb CMS
 
 6. Read and learn more at https://www.easyweb.site
 
+## CSS / Styles
+
+Styles are written in **SCSS** and located in the `scss/` folder. The compiled output is `css/style.css` (git-ignored, generated at build time).
+
+**Compile once:**
+```bash
+npm install
+npm run build:css
+```
+
+**Watch for changes during development:**
+```bash
+npm run watch:css
+```
+
+SCSS partials are organised by component under `scss/`:
+
+| File | Contents |
+|---|---|
+| `_variables.scss` | CSS custom properties / design tokens |
+| `_base.scss` | Reset & global |
+| `_header.scss` | Header |
+| `_nav.scss` | Navigation / menu |
+| `_buttons.scss` | Button styles |
+| `_sections.scss` | Shared section classes |
+| `_hero.scss` | Hero (home & page variants) |
+| `_intro.scss` | Intro centered block |
+| `_facts.scss` | Facts / stats grid |
+| `_text-media.scss` | Text & media rows |
+| `_banner.scss` | Banner |
+| `_footer.scss` | Footer |
+| `_text-content.scss` | Rich text content |
+| `_teams.scss` | Team cards grid |
+| `_contact.scss` | Contact form & info |
+| `_news.scss` | News card grid |
+| `_article.scss` | Single article layout |
+| `_timeline.scss` | Timeline |
+| `_responsive.scss` | Responsive breakpoints |
+
 ## Quick start
 The Easyweb.site-framework is quite vast and has built in ways to handle most task required by a modern website. Below is a quick guide on how to build and print content from the Easyweb CMS to HTML.
 
