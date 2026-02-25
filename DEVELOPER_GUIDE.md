@@ -1113,6 +1113,38 @@ For example, if the API returns `{ "hero": { "header": "...", "media": {...} } }
 - Use `ew-for="hero/header"` to render the header text
 - Use `ew-for-src="hero/media"` to render the image
 
+### 12. Reference Labels: `ew-for-label` vs `ew-for="$Label"`
+
+When working with **reference type** templates (`ReferenceType` — links, images, etc.), there are two different labels involved:
+
+- The **reference link's own label** — the label the editor sets on the reference coupling itself in the CMS
+- The **referenced content's label** — the label/title of the article or page that the reference points to
+
+These are often different. For example, a link reference might have the label "Read more" while it points to an article titled "About Us".
+
+**`ew-for="$Label"`** resolves the label of the **referenced content** (the target article/page). To get the label that belongs to the **reference link itself**, you must use **`ew-for-label="$"`**:
+
+```razor
+@* Gets the label of the REFERENCED CONTENT (the linked article/page) *@
+<span ew-for="$Label"></span>          @* → "About Us" (the target article's title) *@
+
+@* Gets the label of the REFERENCE LINK ITSELF (set on the reference in the CMS) *@
+<span ew-for-label="$"></span>         @* → "Read more" (the reference's own label) *@
+```
+
+> ⚠️ This is a common pitfall. When AI or code generators render reference templates, they typically output `ew-for="$Label"` which looks correct but will display the linked content's title — not the label the editor intended for the link. Always use `ew-for-label="$"` when you want the reference's own display text.
+
+This is particularly important when rendering lists of reference links, such as footer link blocks:
+
+```razor
+<div ew-list="linkBlock">
+    <h4 ew-for-label="$"></h4>                    @* The block's own label *@
+    <ew-list for-key="links">
+        <a ew-for-href="$"><span ew-for-label="$"></span></a>  @* Each link's own label *@
+    </ew-list>
+</div>
+```
+
 ---
 
 ## Quick Reference Card
@@ -1122,6 +1154,7 @@ For example, if the API returns `{ "hero": { "header": "...", "media": {...} } }
 <h1 ew-for="key"></h1>                           @* Text content *@
 <img ew-for-src="key" />                          @* Image source *@
 <a ew-for-href="key">Link</a>                     @* Link URL *@
+<span ew-for-label="$"></span>                       @* Reference's own label *@
 <div ew-for-background-image="key"></div>          @* Background image *@
 <time ew-for="key" format="yyyy-MM-dd"></time>     @* Formatted date *@
 
