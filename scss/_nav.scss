@@ -1,0 +1,58 @@
+// ============================================
+//   NAVIGATION / MENU
+// ============================================
+nav .mainmenu {
+    display: flex;
+    gap: clamp(16px, 3vw, 32px);
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        position: relative;
+
+        a {
+            font-size: 14px;
+            color: var(--text-dim);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color .2s;
+
+            &:hover { color: var(--orange-light); }
+        }
+
+        &.active > a {
+            color: var(--orange-light);
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 2px;
+        }
+    }
+
+    .dropdown-arrow { display: none; }
+
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        border-radius: 12px;
+        padding: 8px 0;
+        min-width: 180px;
+        list-style: none;
+        z-index: 200;
+
+        li a {
+            display: block;
+            padding: 8px 20px;
+            font-size: 13px;
+            color: var(--text-dim);
+
+            &:hover { color: var(--orange-light); }
+        }
+    }
+
+    li.dropdown:hover .submenu { display: block; }
+}

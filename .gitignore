@@ -21,6 +21,8 @@ modules/
 
 */wwwroot/js/
 */wwwroot/css/
+css/style.css
+package-lock.json
 [Pp]ublish/
 */.[Pp]ublish*/
 */Cache/

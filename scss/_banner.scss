@@ -1,0 +1,32 @@
+// ============================================
+//   BANNER
+// ============================================
+.banner {
+    position: relative;
+    padding: clamp(50px, 8vw, 100px) clamp(20px, 5vw, 60px);
+    background: linear-gradient(135deg, var(--surface2), #1a1008, #2a1505);
+    text-align: center;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, var(--orange-glow), transparent 70%);
+        pointer-events: none;
+    }
+
+    .tag,
+    h2 {
+        position: relative;
+        z-index: 1;
+    }
+
+    .tag { color: var(--orange-light); opacity: .7; }
+
+    h2 {
+        font-size: clamp(26px, 4vw, 40px);
+        color: #fff;
+        font-weight: 800;
+    }
+}

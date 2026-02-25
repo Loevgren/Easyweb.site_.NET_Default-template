@@ -1,0 +1,12 @@
+{
+  "name": "albatross-5000",
+  "version": "1.0.0",
+  "description": "Front-end build tooling for Albatross 5000",
+  "scripts": {
+    "build:css": "sass scss/style.scss css/style.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch scss/style.scss css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.85.1"
+  }
+}

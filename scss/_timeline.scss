@@ -1,0 +1,71 @@
+// ============================================
+//   TIMELINE
+// ============================================
+.timeline {
+    position: relative;
+    padding-left: 40px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border2);
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    padding-left: 24px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -31px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(135deg, var(--orange), var(--amber));
+        border-radius: 50%;
+        border: 2px solid var(--bg);
+    }
+
+    .year {
+        font-size: 13px;
+        color: var(--orange);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 6px;
+    }
+
+    h3 {
+        font-size: clamp(18px, 2vw, 22px);
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    p,
+    .description {
+        font-size: 15px;
+        color: var(--text-dim);
+        line-height: 1.8;
+    }
+
+    .timeline-img {
+        margin-top: 16px;
+        border-radius: 16px;
+        overflow: hidden;
+        max-width: 500px;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}

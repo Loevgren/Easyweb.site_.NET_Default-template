@@ -1,0 +1,106 @@
+// ============================================
+//   ARTICLE (single news)
+// ============================================
+.article-hero {
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px) clamp(30px, 4vw, 50px);
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        right: -10%;
+        top: -30%;
+        width: 45vw;
+        height: 45vw;
+        max-width: 500px;
+        max-height: 500px;
+        background: radial-gradient(circle, var(--orange-glow), transparent 65%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    h1 {
+        font-size: clamp(28px, 4vw, 44px);
+        color: #fff;
+        max-width: 800px;
+        line-height: 1.18;
+        margin-bottom: 20px;
+        font-weight: 800;
+    }
+
+    .ingress {
+        font-size: clamp(15px, 1.3vw, 18px);
+        color: var(--text-dim);
+        max-width: 700px;
+        line-height: 1.75;
+    }
+}
+
+.article-hero-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    background: none;
+    padding: 0;
+
+    a {
+        color: var(--orange);
+        opacity: .7;
+        text-decoration: none;
+    }
+}
+
+.article-meta {
+    font-size: 13px;
+    color: var(--orange);
+    opacity: .7;
+    margin-bottom: 14px;
+}
+
+.article-img {
+    padding: clamp(20px, 3vw, 40px) clamp(20px, 5vw, 60px);
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .img-wide {
+        width: 100%;
+        aspect-ratio: 16/7;
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.article-body {
+    padding: clamp(30px, 4vw, 50px) clamp(20px, 5vw, 60px);
+    max-width: 860px;
+
+    p {
+        font-size: 16px;
+        color: var(--text-dim);
+        line-height: 1.9;
+        margin-bottom: 18px;
+    }
+
+    h2 {
+        font-size: clamp(20px, 2.2vw, 26px);
+        color: #fff;
+        margin: 36px 0 14px;
+    }
+}
