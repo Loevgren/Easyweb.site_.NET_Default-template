@@ -1,0 +1,17 @@
+@* Single news article view *@
+
+<div class="article-hero">
+    <div class="article-hero-inner">
+        <span class="article-meta" ew-for="date"></span>
+        <h1 ew-for="$label"></h1>
+        <p class="ingress" ew-for="Section/preamble"></p>
+    </div>
+</div>
+
+<div class="article-img" ew-if-key="image">
+    <div class="img-wide">
+        <img ew-for-src="image" />
+    </div>
+</div>
+
+<div class="article-body" ew-for="Section/html"></div>

@@ -1,0 +1,21 @@
+@* Company timeline view — renders hero + timeline entries + flex sections *@
+
+<ew-template for-key="heroPage" />
+
+<div class="section-pad">
+    <div class="section-inner">
+        <div class="timeline">
+            <div class="timeline-item" ew-list="timeline">
+                <div class="year" ew-for="year"></div>
+                <h3 ew-for="event"></h3>
+                <div class="description" ew-for="description"></div>
+                <div class="timeline-img" ew-if-key="Image">
+                    <img ew-for-src="Image" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Render any flex sections (introduction, facts, textMedia, etc.) *@
+<ew-template for-key="Flex" />

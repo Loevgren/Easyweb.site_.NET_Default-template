@@ -1,0 +1,22 @@
+<div class="section-pad">
+    <div class="section-inner tm-row" ew-if-not-key="reversed">
+        <div class="tm-img">
+            <img ew-for-src="image" />
+        </div>
+        <div class="tm-content">
+            <span class="tag" ew-for="tag"></span>
+            <h2 ew-for="header"></h2>
+            <p ew-for="description"></p>
+        </div>
+    </div>
+    <div class="section-inner tm-row reversed" ew-if-key="reversed">
+        <div class="tm-img">
+            <img ew-for-src="image" />
+        </div>
+        <div class="tm-content">
+            <span class="tag" ew-for="tag"></span>
+            <h2 ew-for="header"></h2>
+            <p ew-for="description"></p>
+        </div>
+    </div>
+</div>

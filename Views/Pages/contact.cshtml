@@ -1,0 +1,21 @@
+@* Contact page view — renders contact details + form + teams *@
+
+<div class="hero-page">
+    <div class="hero-page-inner">
+        <h1 ew-for="$label"></h1>
+    </div>
+</div>
+
+<div class="section-pad">
+    <div class="section-inner contact-grid">
+        <div class="contact-info">
+            <h2 ew-for="contactDetails/header"></h2>
+            <div ew-for="contactDetails/html"></div>
+        </div>
+        <div class="contact-form-box">
+            <ew-template for-key="contactForm" />
+        </div>
+    </div>
+</div>
+
+<ew-template for-key="teams" />
